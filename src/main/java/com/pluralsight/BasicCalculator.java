@@ -2,7 +2,7 @@ package com.pluralsight;
 
 import java.util.Scanner;
 
-public class CalculatorApp {
+public class BasicCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -20,11 +20,14 @@ public class CalculatorApp {
         System.out.println("(M)ultiply");
         System.out.println("(D)ivide");
         System.out.print("Please select an option: ");
+
+        //char assigns varable to selected equation
+
         char operation = scanner.next().charAt(0);
 
         double result;
 
-        // Perform the selected numbers and math
+        // Perform the selected numbers and math (Case sensitive using switch)
         switch (operation) {
             case 'A':
             case 'a':
@@ -44,6 +47,13 @@ public class CalculatorApp {
             case 'D':
             case 'd':
 
+                // check if dividing by zero
+                    if (num2 == 0){
+                        System.out.println("error: Cannot divide by 0");
+                        return;
+                    }
+
+                    //if not dividing by zero, continue code.
                     result = num1 / num2;
                     System.out.println(num1 + " / " + num2 + " = " + result);
 
